@@ -108,9 +108,9 @@ namespace SystemInfoExplorer
 
                 BytesWrittenToDisk = int.Parse(GetDiskWriteBytesCount().ToString());
 
-                AvgTimeDiskReadPerSeond = Double.Parse(GetDiskReadPerSeond().ToString());
+                AvgTimeDiskReadPerSeond = Double.Parse(GetDiskReadPerSecond().ToString());
 
-                AvgTimeDiskWritePerSeond = Double.Parse(GetDiskWritePerSeond().ToString());
+                AvgTimeDiskWritePerSeond = Double.Parse(GetDiskWritePerSecond().ToString());
 
                 return 0;
             }
@@ -205,7 +205,7 @@ namespace SystemInfoExplorer
         }
 
         /// <summary>
-        /// Gets the total number of context switches (thread changes)
+        /// Gets the total number of context switches (thread changes) per second
         /// </summary>
         /// <returns>Object</returns>
         private object GetContextSwitchesCount()
@@ -238,7 +238,7 @@ namespace SystemInfoExplorer
         }
 
         /// <summary>
-        /// Reports the total number of bytes read from the disk
+        /// Reports the total number of bytes read from the disk per second
         /// </summary>
         /// <returns>Object</returns>
         private object GetDiskReadBytesCount()
@@ -249,7 +249,7 @@ namespace SystemInfoExplorer
         }
 
         /// <summary>
-        /// Reports the total number of bytes written to the disk
+        /// Reports the total number of bytes written to the disk per second
         /// </summary>
         /// <returns>Object</returns>
         private object GetDiskWriteBytesCount()
@@ -263,7 +263,7 @@ namespace SystemInfoExplorer
         /// Reports the average time in reading operations from the disk
         /// </summary>
         /// <returns>Object</returns>
-        private object GetDiskReadPerSeond()
+        private object GetDiskReadPerSecond()
         {
             PerformanceCounter diskReadPerSeond = new PerformanceCounter("PhysicalDisk", "Avg. Disk sec/Read", "_Total");
 
@@ -274,7 +274,7 @@ namespace SystemInfoExplorer
         /// Reports the average time in writing operations to the disk
         /// </summary>
         /// <returns>Object</returns>
-        private object GetDiskWritePerSeond()
+        private object GetDiskWritePerSecond()
         {
             PerformanceCounter diskWritePerSeond = new PerformanceCounter("PhysicalDisk", "Avg. Disk sec/Write", "_Total");
 

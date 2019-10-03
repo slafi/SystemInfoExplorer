@@ -1,75 +1,89 @@
-# Project Title
+# Project Description
 
-One Paragraph of project description goes here
+This project uses the [Windows Management Instrumentation (WMI)](https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-start-page) API in order to explore the hardware items installed in a computer. It also allows to instantly query a set of performance counters in order to retrieve the current state of some hardware parameters.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The code is structured under the namespace `SystemInfoExplorer`. It is built into a DLL library that can be added to any Windows-compatible project.
 
-### Prerequisites
+### Hardware Explorer
 
-What things you need to install the software and how to install them
+The library allows to explore the platform environment and the hardware installed into a computer by querying a subset of WMI classes. It returns information about the following items:
 
+| Item        | Class           | Corresponding WMI class  | Description  |
+| ------------- | ------------- | ----- | ----- |
+| CPU      | `CPUInfo` | `Win32_Processor` | Provides information about an installed CPU |
+| Memory bank      | `MemoryBankInfo` | `Win32_PhysicalMemory` | Provides information about an individual memory bank |
+| Memory      | `MemoryInfo` | None | Uses the class `MemoryBankInfo` to provide insights about the overall installed memory |
+| Video controller      | `VideoControllerInfo` | `Win32_VideoController` | Provides information about an installed video controller |
+| Disk partition      | `DiskPartition` |  `Win32_DiskPartition` | Provides information about an individual disk partition |
+| Disk drive      | `DiskDriveInfo` | `Win32_DiskDrive` | Provides information about an installed disk drive |
+| Platform      | `PlatformInfo` | None | Provides information about the operating system environment (e.g., OS, machine name, etc.) |
+
+
+### Telemetry Information
+
+The class `QuickSystemStats` allows to retrieve the current state of a subset of the system parameters (e.g., CPU usage, free memory size, etc.). The following table provides the list of available parameters:
+
+| Parameter        | Unit | Device           | Description  |
+| ------------- | :-----: | :-------------: | ----- |
+| CpuUsage     | Percent (%) | CPU | The usage percentage of the CPU |
+| ThreadCount     | - | CPU      |   The number of threads |
+| HandlesCount | - | CPU     |    the number of handles |
+| CPUContextSwitches | switches/second | CPU     |    The number of CPU context switches per second |
+| SystemCallsCount | calls/second | CPU     |    The number of system calls per second |
+| TotalMemSize | MegaBytes | Memory     |    The total size of available memory |
+| FreeMemSize | MegaBytes | Memory     |    The size of the free memory |
+| MemUsagePercent | Percent (%) | Memory     |    The percentage of memory usage |
+| BytesReadFromDisk     | Bytes/second | Disk      |   The number of bytes read from disk per second |
+| BytesWrittenToDisk     | Bytes/second | Disk      |   The number of bytes written to disk per second |
+| AvgTimeDiskReadPerSecond | - | Disk     |    The average reading operations from disk per second |
+| AvgTimeDiskWritePerSecond | - | Disk     |    The average writing operations to disk per second |
+
+
+## Usage
+
+To explore the hardware installed on the computer, the class `SystemInfoExplorer` should be instantiated as follows:
+
+```c#
+// Add namespace to the C# file
+using SystemInfoExplorer;
+
+// Instantiate the explorer class
+Explorer explorer = new Explorer();
+
+// If the results logging is required, the file output should be enabled (disabled by default)
+SystemInfoExplorer.Globals.Enable_File_Output = true;
+
+// The default log filename is "devices.txt". It can be altered if required as follows:
+SystemInfoExplorer.Globals.Output_Filename = filename;
+
+// Invoke the run method to retrieve information from WMI structure (this may take few seconds)
+explorer.Run();
 ```
-Give examples
-```
 
-### Installing
+To retrieve the system current state, the `QuickSystemStats` class can be used as follows:
 
-A step by step series of examples that tell you how to get a development env running
+```c#
+// Instantiate the QuickSystemStats class
+QuickSystemStats counters = new QuickSystemStats();
 
-Say what the step will be
+// Invoke the method GetStats() to retrieve the current system parameters
+counters.GetStats();
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+// Use the overridden method ToString() to display / log the query results
+Console.WriteLine($"{counters.ToString()}");
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To use the `SystemInfoExplorer` dynamic link library (DLL), you need to add a reference to your project.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Microsoft Visual Studio
+* [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47) - Dependency Management
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
