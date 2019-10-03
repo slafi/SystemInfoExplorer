@@ -4,7 +4,7 @@ This project uses the [Windows Management Instrumentation (WMI)](https://docs.mi
 
 ## Getting Started
 
-The code is structured under the namespace `SystemInfoExplorer`. It is built into a DLL library that can be added to any Windows-compatible project.
+The code is structured under the namespace `SystemInfoExplorer`. It is built into a dynamic link library (DLL) that can be added to any .net project.
 
 ### Hardware Explorer
 
@@ -23,7 +23,7 @@ The library allows to explore the platform environment and the hardware installe
 
 ### Telemetry Information
 
-The class `QuickSystemStats` allows to retrieve the current state of a subset of the system parameters (e.g., CPU usage, free memory size, etc.). The following table provides the list of available parameters:
+The class `QuickSystemStats` allows to retrieve the current state of a subset of the system parameters (e.g., CPU usage, free memory size, etc.). The following table provides the list of the available parameters:
 
 | Parameter        | Unit | Device           | Description  |
 | ------------- | :-----: | :-------------: | ----- |
@@ -62,7 +62,7 @@ SystemInfoExplorer.Globals.Output_Filename = filename;
 explorer.Run();
 ```
 
-To retrieve the system current state, the `QuickSystemStats` class can be used as follows:
+To retrieve the current system state from the selected performace counters, the `QuickSystemStats` class can be used as follows:
 
 ```c#
 // Instantiate the QuickSystemStats class
@@ -77,12 +77,12 @@ Console.WriteLine($"{counters.ToString()}");
 
 ## Deployment
 
-To use the `SystemInfoExplorer` dynamic link library (DLL), you need to add a reference to your project.
+To use the `SystemInfoExplorer` DLL, a reference should be added to the .net project.
 
 ## Built With
 
 * [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Microsoft Visual Studio
-* [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47) - Dependency Management
+* [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47) - .net framework
 
 ## License
 
