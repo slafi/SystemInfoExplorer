@@ -21,7 +21,7 @@ The library allows to explore the platform environment and the hardware installe
 | Platform      | `PlatformInfo` | None | Provides information about the operating system environment (e.g., OS, machine name, etc.) |
 
 
-### Telemetry Information
+### Information from Available Performance Counters
 
 The class `QuickSystemStats` allows to retrieve the current state of a subset of the system parameters (e.g., CPU usage, free memory size, etc.). The following table provides the list of the available parameters:
 
