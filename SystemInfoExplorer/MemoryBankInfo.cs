@@ -9,7 +9,7 @@ namespace SystemInfoExplorer
 {
     /// <summary>
     /// \class MemoryBankInfo 
-    /// captures the main properties of a MemoryBankInfo structure.
+    /// Captures the main properties of a MemoryBankInfo structure.
     /// It uses a subset of the properties defined in the WMI class: Win32_PhysicalMemory
     /// For more information, <see href="https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-physicalmemory">Win32_PhysicalMemory class</see>
     /// </summary>

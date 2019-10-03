@@ -92,7 +92,7 @@ namespace SystemInfoExplorer
         /// <summary>
         /// Default output filename
         /// </summary>
-        public static string output_filename = "devices.txt";
+        public static string Output_Filename = "devices.txt";
 
         /// <summary>
         /// A flag indicating if the logging to an output filename is enabled

@@ -89,7 +89,7 @@ namespace SystemInfoExplorer
 
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"{MemoryInformation.ToString()}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"{MemoryInformation.ToString()}\n", true);
                 }
 
                 // Get video controller information
@@ -131,10 +131,10 @@ namespace SystemInfoExplorer
 
             if (Globals.Enable_File_Output)
             {
-                Tools.SaveData(Globals.output_filename, $"\n********** Processor Info **********\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"\n********** Processor Info **********\n", true);
                 if (objCol != null)
                 {
-                    Tools.SaveData(Globals.output_filename, $"\nDetected CPUs: {objCol.Count}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\nDetected CPUs: {objCol.Count}\n", true);
                 }
             }
 
@@ -147,7 +147,7 @@ namespace SystemInfoExplorer
 
 #if DEBUG
                 Console.WriteLine(cpu.ToString());
-                Tools.SaveData(Globals.output_filename, $"{cpu.ToString()}\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"{cpu.ToString()}\n", true);
 #endif
 
             }
@@ -172,10 +172,10 @@ namespace SystemInfoExplorer
 
             if (Globals.Enable_File_Output)
             {
-                Tools.SaveData(Globals.output_filename, $"\n********** Memory Info **********\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"\n********** Memory Info **********\n", true);
                 if (objCol != null)
                 {
-                    Tools.SaveData(Globals.output_filename, $"\nDetected memory banks: {objCol.Count}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\nDetected memory banks: {objCol.Count}\n", true);
                 }
             }
 
@@ -190,7 +190,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"{mem.ToString()}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"{mem.ToString()}\n", true);
                 }
             }
 
@@ -215,10 +215,10 @@ namespace SystemInfoExplorer
 
             if (Globals.Enable_File_Output)
             {
-                Tools.SaveData(Globals.output_filename, $"\n********** Video Controllers **********\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"\n********** Video Controllers **********\n", true);
                 if (objCol != null)
                 {
-                    Tools.SaveData(Globals.output_filename, $"\nDetected video controllers: {objCol.Count}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\nDetected video controllers: {objCol.Count}\n", true);
                 }
             }
 
@@ -234,7 +234,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"{vid.ToString()}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"{vid.ToString()}\n", true);
                 }
             }
         }
@@ -258,10 +258,10 @@ namespace SystemInfoExplorer
 
             if (Globals.Enable_File_Output)
             {
-                Tools.SaveData(Globals.output_filename, $"\n********** Disk Drives **********\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"\n********** Disk Drives **********\n", true);
                 if (objCol != null)
                 {
-                    Tools.SaveData(Globals.output_filename, $"\nDetected disk drives: {objCol.Count}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\nDetected disk drives: {objCol.Count}\n", true);
                 }
             }
 
@@ -274,7 +274,7 @@ namespace SystemInfoExplorer
 
 #if DEBUG
                 Console.WriteLine(disk.ToString());
-                Tools.SaveData(Globals.output_filename, $"{disk.ToString()}\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"{disk.ToString()}\n", true);
 #endif
             }
 
@@ -299,10 +299,10 @@ namespace SystemInfoExplorer
 #endif
             if (Globals.Enable_File_Output)
             {
-                Tools.SaveData(Globals.output_filename, $"\n********** Disk Partitions **********\n", true);
+                Tools.SaveData(Globals.Output_Filename, $"\n********** Disk Partitions **********\n", true);
                 if (objCol != null)
                 {
-                    Tools.SaveData(Globals.output_filename, $"\nDetected partitions: {objCol.Count}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\nDetected partitions: {objCol.Count}\n", true);
                 }
             }
 
@@ -318,7 +318,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"{partition.ToString()}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"{partition.ToString()}\n", true);
                 }
             }
 

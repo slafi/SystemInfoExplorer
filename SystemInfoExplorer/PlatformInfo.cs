@@ -85,7 +85,7 @@ namespace SystemInfoExplorer
 
                 if(Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"********** Platform General Information **********\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"********** Platform General Information **********\n", true);
                 }
 
                 // returns true on my PC as it is a 64-bit OS
@@ -96,7 +96,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"is64BitOperatingSystem: {is64BitOperatingSystem}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"is64BitOperatingSystem: {is64BitOperatingSystem}\n", true);
                 }
 
                 // returns the machine name
@@ -106,7 +106,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"machineName: {machineName}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"machineName: {machineName}\n", true);
                 }
 
                 // returns information about the operating system version, build, major, minor etc.
@@ -117,7 +117,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"OS: {os}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"OS: {os}\n", true);
                 }
 
                 // returns the platform id as an enumeration
@@ -128,7 +128,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"Platform: {os.Platform}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"Platform: {os.Platform}\n", true);
                 }
 
                 // the currently installed service pack
@@ -140,7 +140,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"ServicePack: {os.ServicePack}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"ServicePack: {os.ServicePack}\n", true);
                 }
 
                 // retrieve the current CLR version
@@ -152,7 +152,7 @@ namespace SystemInfoExplorer
 
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"CLR version: {clrVersion}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"CLR version: {clrVersion}\n", true);
                 }
 
                 //the toString version of the OS                
@@ -163,7 +163,7 @@ namespace SystemInfoExplorer
 #endif
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"VersionString: {os.VersionString}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"VersionString: {os.VersionString}\n", true);
                 }
 
                 //I have 4 processors on this PC
@@ -175,7 +175,7 @@ namespace SystemInfoExplorer
 
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"processorCount: {processorCount}\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"processorCount: {processorCount}\n", true);
                 }
 
                 // returns a list of logical drives: e.g., C: and D:
@@ -183,12 +183,12 @@ namespace SystemInfoExplorer
 
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"Logical Drives:\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"Logical Drives:\n", true);
                     foreach (string key in logicalDrives)
                     {
-                        Tools.SaveData(Globals.output_filename, $"{key} |\t", true);
+                        Tools.SaveData(Globals.Output_Filename, $"{key} |\t", true);
                     }
-                    Tools.SaveData(Globals.output_filename, $"\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"\n", true);
                 }
 
                 // this is how to find all environmental variables of the system and iterate through them
@@ -196,12 +196,12 @@ namespace SystemInfoExplorer
 
                 if (Globals.Enable_File_Output)
                 {
-                    Tools.SaveData(Globals.output_filename, $"Environment variables:\n", true);
+                    Tools.SaveData(Globals.Output_Filename, $"Environment variables:\n", true);
                     foreach (string key in envVars.Keys)
                     {
                         Debug.WriteLine(string.Concat("key: ", key, ": ", envVars[key]));
 
-                        Tools.SaveData(Globals.output_filename, $"{string.Concat("\t", key, ": ", envVars[key])}\n", true);
+                        Tools.SaveData(Globals.Output_Filename, $"{string.Concat("\t", key, ": ", envVars[key])}\n", true);
                     }
                 }
 

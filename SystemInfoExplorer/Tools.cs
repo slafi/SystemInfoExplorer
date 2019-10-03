@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace SystemInfoExplorer
 {
     /// <summary>
-    /// \class Tools gathers static helper functions that can be used for different purposes (e.g., data storage)
+    /// \class Tools 
+    /// Gathers static helper functions that can be used for different purposes (e.g., data storage)
     /// </summary>
     public static class Tools
     {
