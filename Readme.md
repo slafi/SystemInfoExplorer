@@ -25,7 +25,7 @@ The library allows to explore the platform environment and the hardware installe
 
 The class `QuickSystemStats` allows to retrieve the current state of a subset of the system parameters (e.g., CPU usage, free memory size, etc.). The following table provides the list of the available parameters:
 
-| Parameter        | Unit | Device           | Description  |
+| Parameter        | Unit/Scale | Device           | Description  |
 | ------------- | :-----: | :-------------: | ----- |
 | CpuUsage     | Percent (%) | CPU | The usage percentage of the CPU |
 | ThreadCount     | - | CPU      |   The number of threads |
